@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Dropdown(props) {
 	const [listItems, setListItems] = useState([]);
+	const [previousSelectedItem, setPreviousSelectedItem] = useState(null);
 
 	useEffect(() => {
 		setListItems(props.dataList);
@@ -9,8 +10,8 @@ export default function Dropdown(props) {
 
 	const handleItemSelected = (e) => {
 		const selectedItem = listItems.find(item => item.name === e.target.value);
-		props.onItemSelected(selectedItem);
-		console.log(selectedItem);
+		props.onItemSelected(previousSelectedItem, selectedItem);
+		setPreviousSelectedItem(selectedItem);
 	};
 
 	return (

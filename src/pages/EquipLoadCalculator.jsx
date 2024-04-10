@@ -18,7 +18,12 @@ export default function EquipLoadCalculator() {
 		setEquipLoad(calculateEquipLoad(endurance));
 	};
 
-	const handleItemSelected = (item) => {
+	const handleItemSelected = (prevItem, item) => {
+		if (prevItem) {
+			setEndurance(endurance - prevItem.endurance);
+			setEquipLoad(equipLoad / prevItem.equipLoad);
+			setCurrentLoad(currentLoad - prevItem.weight);
+		}
 		if (item) {
 			setEndurance(endurance + item.endurance);
 			setEquipLoad(equipLoad * item.equipLoad);
@@ -38,6 +43,7 @@ export default function EquipLoadCalculator() {
 				<p>{equipLoad}</p>
 			) : (
 				<div>
+					<h4>Endurance: {endurance}</h4>
 					<p>Light: up to {calculateEquipLoadThreshold(equipLoad, "light").toFixed(2)}</p>
 					<p>
 						Medium: up to {calculateEquipLoadThreshold(equipLoad, "medium").toFixed(2)}

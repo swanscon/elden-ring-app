@@ -4,7 +4,7 @@ export default function FormField(props) {
 	const [pHolder, setPHolder] = useState("");
 
 	const handleChange = (e) => {
-		props.onValueChange(e.target.value);
+		props.onValueChange(Number(e.target.value));
 	};
 
 	const handleSubmit = (e) => {
@@ -20,7 +20,7 @@ export default function FormField(props) {
 	return (
 		<div>
 			<form>
-				<input type="text" placeholder={pHolder} onChange={handleChange}></input>
+				<input type="number" placeholder={pHolder} onChange={handleChange}></input>
 				<button type="submit" onClick={handleSubmit}>
 					OK
 				</button>

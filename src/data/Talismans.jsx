@@ -19,13 +19,13 @@ export default function Talismans() {
 			equipLoad: 1,
 		},
 		{
-			name: "ARSAL CHARM",
+			name: "ARSENAL CHARM",
 			weight: 1.5,
 			endurance: 0,
 			equipLoad: 1.15,
 		},
 		{
-			name: "ARSAL CHARM +1",
+			name: "ARSENAL CHARM +1",
 			weight: 1.5,
 			endurance: 0,
 			equipLoad: 1.17,
